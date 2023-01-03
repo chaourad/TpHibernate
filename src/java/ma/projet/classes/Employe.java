@@ -5,10 +5,13 @@
  */
 package ma.projet.classes;
 
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,6 +27,8 @@ public class Employe {
     private String nom;
     private String prenom;
     private String telepone;
+ @OneToMany (mappedBy = "employ", fetch = FetchType.EAGER)
+    private List<Projet> proj;
 
     public Employe() {
     }

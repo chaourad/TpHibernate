@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,16 +20,20 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Tache {
-      @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
     private String nom;
-     @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date dateDebut;
-      @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date datefin;
     private double prix;
+
+    @ManyToOne
+    private Projet prjt;
 
     public Tache() {
     }
@@ -72,6 +77,5 @@ public class Tache {
     public void setPrix(double prix) {
         this.prix = prix;
     }
-    
-    
+
 }

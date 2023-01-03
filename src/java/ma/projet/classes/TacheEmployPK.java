@@ -24,8 +24,7 @@ public class TacheEmployPK implements Serializable {
     private int employe;
     @Temporal(TemporalType.DATE)
     private Date dateDebutRelle;
-    @Temporal(TemporalType.DATE)
-    private Date dateFinReelle;
+
 
     public TacheEmployPK() {
     }
@@ -54,12 +53,6 @@ public class TacheEmployPK implements Serializable {
         this.dateDebutRelle = dateDebutRelle;
     }
 
-    public Date getDateFinReelle() {
-        return dateFinReelle;
-    }
-
-    public void setDateFinReelle(Date dateFinReelle) {
-        this.dateFinReelle = dateFinReelle;
-    }
+   
 
 }

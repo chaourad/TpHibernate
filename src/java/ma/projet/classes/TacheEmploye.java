@@ -6,6 +6,8 @@
 package ma.projet.classes;
 
 import java.util.Date;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -14,8 +16,10 @@ import javax.persistence.Temporal;
  *
  * @author chaou
  */
+@Entity
 public class TacheEmploye {
 
+    @EmbeddedId
     private TacheEmployPK pk;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateFin;

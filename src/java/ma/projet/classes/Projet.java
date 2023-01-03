@@ -6,10 +6,14 @@
 package ma.projet.classes;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import static jdk.nashorn.internal.runtime.Debug.id;
@@ -20,15 +24,21 @@ import static jdk.nashorn.internal.runtime.Debug.id;
  */
 @Entity
 public class Projet {
-  @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
     private String nom;
-     @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date dateDebut;
-      @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date datefin;
+
+    @ManyToOne
+    private Employe employ;
+    @OneToMany(mappedBy = "prjt", fetch = FetchType.EAGER)
+    private List<Tache> tache;
 
     public Projet() {
     }
@@ -64,6 +74,5 @@ public class Projet {
     public void setDatefin(Date datefin) {
         this.datefin = datefin;
     }
-    
-    
+
 }
